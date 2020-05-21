@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOSE_Assignment", "OOSE_Assignment\OOSE_Assignment.csproj", "{4E08A60C-4D0A-4D90-9607-D5A05927DB81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOSE_Assignment", "OOSE_Assignment\OOSE_Assignment.csproj", "{D068CCC8-8245-45C5-9A19-19F30ABEC53F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,9 +9,9 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4E08A60C-4D0A-4D90-9607-D5A05927DB81}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{4E08A60C-4D0A-4D90-9607-D5A05927DB81}.Debug|anycpu.Build.0 = Debug|anycpu
-		{4E08A60C-4D0A-4D90-9607-D5A05927DB81}.Release|anycpu.ActiveCfg = Release|anycpu
-		{4E08A60C-4D0A-4D90-9607-D5A05927DB81}.Release|anycpu.Build.0 = Release|anycpu
+		{D068CCC8-8245-45C5-9A19-19F30ABEC53F}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{D068CCC8-8245-45C5-9A19-19F30ABEC53F}.Debug|anycpu.Build.0 = Debug|anycpu
+		{D068CCC8-8245-45C5-9A19-19F30ABEC53F}.Release|anycpu.ActiveCfg = Release|anycpu
+		{D068CCC8-8245-45C5-9A19-19F30ABEC53F}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 EndGlobal

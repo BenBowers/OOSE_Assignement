@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
-    <ProjectGuid>{4E08A60C-4D0A-4D90-9607-D5A05927DB81}</ProjectGuid>
+    <ProjectGuid>{D068CCC8-8245-45C5-9A19-19F30ABEC53F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>OOSE_Assignment</RootNamespace>
     <AssemblyName>OOSE_Assignment</AssemblyName>
@@ -18,6 +18,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ExternalConsole>true</ExternalConsole>
+    <IntermediateOutputPath>obj\anycpu\Debug</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
     <Optimize>true</Optimize>
@@ -25,6 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ExternalConsole>true</ExternalConsole>
+    <IntermediateOutputPath>obj\anycpu\Release</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -32,6 +34,20 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Character.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Inventory.cs" />
+    <Compile Include="Model\Armour.cs" />
+    <Compile Include="Model\Potion.cs" />
+    <Compile Include="Model\WeaponEnchantment.cs" />
+    <Compile Include="Model\Weapon.cs" />
+    <Compile Include="Model\Enemy.cs" />
+    <Compile Include="Model\HealingPotion.cs" />
+    <Compile Include="Model\DamagePotion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
