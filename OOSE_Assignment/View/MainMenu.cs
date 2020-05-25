@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using OOSE_Assignment.View;
-using OOSE_Assignment.Model;
 
-namespace OOSE_Assignment.Controller
+namespace OOSE_Assignment.View
 {
-    public class MainMenu : MethodMenu
+    public class MainMenu : Menu
     {
-        private Player player;
-        private Shop shop;
 
         public MainMenu()
         {
@@ -16,27 +12,18 @@ namespace OOSE_Assignment.Controller
             {
                 new MenuItem("Go to shop", GoToShop ),
                 new MenuItem("Choose Character Name", ChooseCharacterName),
-                new MenuItem("Chose Weapon", ChooseWeapon),
                 new MenuItem("Choose Armour", ChooseArmour),
                 new MenuItem("Start Battle", StartBattle),
+                new MenuItem("Exit Game", ExitGame)
             };
-
-            exit = ExitGame;
         }
 
         private void GoToShop()
         {
             Console.WriteLine("Going to shop");
-            MethodMenu m = new ShopMenu();
-            m.Run();
             this.Run();
         }
 
-        private void ChooseWeapon()
-        {
-            Console.WriteLine("Selecting weapon");
-            this.Run();
-        }
         private void ChooseCharacterName()
         {
             Console.WriteLine("Changing Character name");

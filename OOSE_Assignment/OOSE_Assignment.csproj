@@ -45,9 +45,22 @@
     <Compile Include="Model\Enemy.cs" />
     <Compile Include="Model\HealingPotion.cs" />
     <Compile Include="Model\DamagePotion.cs" />
+    <Compile Include="View\PlayerInfo.cs" />
+    <Compile Include="View\Menu.cs" />
+    <Compile Include="Controller\BattleMenu.cs" />
+    <Compile Include="Controller\MainMenu.cs" />
+    <Compile Include="Model\Shop.cs" />
+    <Compile Include="Controller\Battle.cs" />
+    <Compile Include="View\MenuItem.cs" />
+    <Compile Include="Controller\ShopMenu.cs" />
+    <Compile Include="View\MethodMenu.cs" />
+    <Compile Include="View\ObjectMenu.cs" />
+    <Compile Include="Controller\ShopFileReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="View\" />
+    <Folder Include="Controller\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
