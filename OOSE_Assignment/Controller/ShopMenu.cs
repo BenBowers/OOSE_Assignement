@@ -10,7 +10,7 @@ namespace OOSE_Assignment.Controller
         Shop shop;
         Player player;
 
-        public ShopMenu()
+        public ShopMenu(Shop shop)
         {
             menuName = NAME;
             options = new List<MenuItem>()
@@ -22,21 +22,28 @@ namespace OOSE_Assignment.Controller
             };
 
             exit = ExitOption;
+            this.shop = shop;
         }
 
         private void WeaponOption()
         {
-
+            ObjectMenu<Weapon> menu = new ObjectMenu<Weapon>(shop.Weapons);
+            menu.Run();
+            this.Run();
         }
 
         private void ArmourOption()
         {
-
+            ObjectMenu<Armour> menu = new ObjectMenu<Armour>(shop.Armours);
+            menu.Run();
+            this.Run();
         }
 
         private void PotionOption()
         {
-
+            ObjectMenu<Potion> menu = new ObjectMenu<Potion>(shop.Potions);
+            menu.Run();
+            this.Run();
         }
 
         private void EnchantmentOption()

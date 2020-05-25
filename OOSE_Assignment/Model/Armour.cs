@@ -9,5 +9,13 @@ namespace OOSE_Assignment.Model
         {
             this.material = material;
         }
+
+        public override string ToString()
+        {
+            return String.Format(
+            "{0}, Cost: {1}, max Damage: {2}, min Damage: {3}," +
+            " Material: {4}",
+            Name, Cost, MaxEffect, MinEffect, material);
+        }
     }
 }

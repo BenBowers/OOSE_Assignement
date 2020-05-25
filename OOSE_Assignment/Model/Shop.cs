@@ -5,35 +5,35 @@ namespace OOSE_Assignment.Model
 {
     public class Shop
     {
-        private List<Armour> armours;
-        private List<Weapon> weapons;
-        private List<Potion> potions;
-        private List<WeaponEnchantment> enchantments;
+        public List<Armour> Armours { get; private set; }
+        public List<Weapon> Weapons { get; private set; }
+        public List<Potion> Potions { get; private set; }
+        public List<WeaponEnchantment> Enchantments { get; private set; }
 
         public Shop()
         {
-            armours = new List<Armour>();
-            weapons = new List<Weapon>();
-            potions = new List<Potion>();
-            enchantments = new List<WeaponEnchantment>();
+            Armours = new List<Armour>();
+            Weapons = new List<Weapon>();
+            Potions = new List<Potion>();
+            Enchantments = new List<WeaponEnchantment>();
         }
 
         public Shop(List<Armour> armours, List<Weapon> weapons, List<Potion> potions, List<WeaponEnchantment> enchantments)
         {
-            this.armours = armours ?? throw new ArgumentNullException(nameof(armours));
-            this.weapons = weapons ?? throw new ArgumentNullException(nameof(weapons));
-            this.potions = potions ?? throw new ArgumentNullException(nameof(potions));
-            this.enchantments = enchantments ?? throw new ArgumentNullException(nameof(enchantments));
+            this.Armours = armours ?? throw new ArgumentNullException(nameof(armours));
+            this.Weapons = weapons ?? throw new ArgumentNullException(nameof(weapons));
+            this.Potions = potions ?? throw new ArgumentNullException(nameof(potions));
+            this.Enchantments = enchantments ?? throw new ArgumentNullException(nameof(enchantments));
         }
 
-        public void AddItem(Armour armour) => armours.Add(armour);
-        public void AddItem(Weapon weapon) => weapons.Add(weapon);
-        public void AddItem(Potion potion) => potions.Add(potion);
-        public void AddEnchantment(WeaponEnchantment enchantment) => enchantments.Add(enchantment);
+        public void AddItem(Armour armour) => Armours.Add(armour);
+        public void AddItem(Weapon weapon) => Weapons.Add(weapon);
+        public void AddItem(Potion potion) => Potions.Add(potion);
+        public void AddEnchantment(WeaponEnchantment enchantment) => Enchantments.Add(enchantment);
 
-        public void RemoveItem(Armour armour) => armours.Remove(armour);
-        public void RemoveItem(Weapon weapon) => weapons.Remove(weapon);
-        public void RemoveItem(Potion potion) => potions.Remove(potion);
-        public void RemoveEnchantment(WeaponEnchantment enchantment) => enchantments.Remove(enchantment);
+        public void RemoveItem(Armour armour) => Armours.Remove(armour);
+        public void RemoveItem(Weapon weapon) => Weapons.Remove(weapon);
+        public void RemoveItem(Potion potion) => Potions.Remove(potion);
+        public void RemoveEnchantment(WeaponEnchantment enchantment) => Enchantments.Remove(enchantment);
     }
 }

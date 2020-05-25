@@ -10,7 +10,7 @@ namespace OOSE_Assignment.Controller
         private Player player;
         private Shop shop;
 
-        public MainMenu()
+        public MainMenu(Shop shop)
         {
             base.options = new List<MenuItem>
             {
@@ -22,12 +22,14 @@ namespace OOSE_Assignment.Controller
             };
 
             exit = ExitGame;
+
+            this.shop = shop;
         }
 
         private void GoToShop()
         {
             Console.WriteLine("Going to shop");
-            MethodMenu m = new ShopMenu();
+            MethodMenu m = new ShopMenu(shop);
             m.Run();
             this.Run();
         }

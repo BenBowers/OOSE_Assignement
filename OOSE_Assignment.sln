@@ -14,4 +14,18 @@ Global
 		{D068CCC8-8245-45C5-9A19-19F30ABEC53F}.Release|anycpu.ActiveCfg = Release|anycpu
 		{D068CCC8-8245-45C5-9A19-19F30ABEC53F}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 80
+		$3.TabsToSpaces = True
+		$3.scope = text/plain
+		$0.StandardHeader = $4
+		$4.Text = @\n ${FileName}\n \n Author:\n      ${AuthorName} <${AuthorEmail}>\n \n
+	EndGlobalSection
 EndGlobal

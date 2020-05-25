@@ -61,7 +61,7 @@ namespace OOSE_Assignment.Controller
 
         private static void ParseLine(Shop shop, string line)
         {
-            string[] strList = line.Split(',');
+            string[] strList = line.Split(new string[] { ", " }, StringSplitOptions.None);
             if(PARSERS.TryGetValue(strList[0][0], out ItemParser parser))
             {
                 parser(shop, strList);

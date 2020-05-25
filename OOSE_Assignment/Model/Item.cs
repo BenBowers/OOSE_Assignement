@@ -3,23 +3,23 @@ namespace OOSE_Assignment.Model
 {
     public abstract class Item
     {
-        private string name;
-        private int cost;
-        private int minEffect;
-        private int maxEffect;
+        public string Name { get; protected set; }
+        public int Cost { get; protected set; }
+        public int MinEffect { get; protected set; }
+        public int MaxEffect { get; protected set; }
 
         public Item(string name, int cost, int minEffect, int maxEffect)
         {
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.cost = cost;
-            this.minEffect = minEffect;
-            this.maxEffect = maxEffect;
+            this.Name = name ?? throw new ArgumentNullException(nameof(name));
+            this.Cost = cost;
+            this.MinEffect = minEffect;
+            this.MaxEffect = maxEffect;
         }
 
         public int GetEffect()
         {
             Random random = new Random();
-            return random.Next(minEffect, maxEffect);
+            return random.Next(MinEffect, MaxEffect);
         }
     }
 }

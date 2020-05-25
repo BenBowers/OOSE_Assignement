@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace OOSE_Assignment.View
 {
 
-    public abstract class Menu<E> where E : class 
+    public abstract class Menu<E>
     {
 
         public const string OUT_OF_RANGE_PROMPT = "Integer out of range";

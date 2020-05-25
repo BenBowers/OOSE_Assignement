@@ -1,4 +1,6 @@
-﻿namespace OOSE_Assignment.Model
+﻿using System;
+
+namespace OOSE_Assignment.Model
 {
     public abstract class Potion : Item
     {
@@ -7,5 +9,12 @@
         }
 
         public abstract void Use(Character character);
+
+        public override string ToString()
+        {
+            return String.Format(
+                "{0}, Cost: {1}, max Effect: {2}, min Effect: {3},",
+                Name, Cost, MaxEffect, MinEffect);
+        }
     }
 }

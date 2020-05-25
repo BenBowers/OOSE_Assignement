@@ -8,5 +8,10 @@ namespace OOSE_Assignment.Model
 
         public override void Use(Character character) =>
             character.Damage(GetEffect());
+
+        public override string ToString()
+        {
+            return base.ToString() + "Potion Type: Damaging";
+        }
     }
 }

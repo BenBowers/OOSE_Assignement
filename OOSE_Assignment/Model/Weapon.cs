@@ -28,5 +28,13 @@ namespace OOSE_Assignment.Model
 
             return curDamage;
         }
+
+        public override string ToString()
+        {
+            return String.Format(
+                "{0}, Cost: {1}, max Damage: {2}, min Damage: {3}," +
+                " WeaponType: {4}, DamageType: {5}",
+                Name, Cost, MaxEffect, MinEffect, WeaponType, DamageType);
+        }
     }
 }

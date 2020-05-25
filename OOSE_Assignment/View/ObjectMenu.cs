@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace OOSE_Assignment.View
 {
-    public class ObjectMenu<E> : Menu<E> where E : class
+    public class ObjectMenu<E> : Menu<E>
     {
         public ObjectMenu(List<E> options) : base(options)
         {
@@ -15,7 +15,7 @@ namespace OOSE_Assignment.View
         public E Run()
         {
             int selection = GetSelection();
-            E returnVal = null;
+            E returnVal = default;
             if(selection < options.Count)
             {
                 returnVal = options[selection];
