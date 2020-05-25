@@ -56,6 +56,8 @@
     <Compile Include="View\MethodMenu.cs" />
     <Compile Include="View\ObjectMenu.cs" />
     <Compile Include="Controller\ShopFileReader.cs" />
+    <Compile Include="View\Prompt.cs" />
+    <Compile Include="Controller\NamePrompt.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

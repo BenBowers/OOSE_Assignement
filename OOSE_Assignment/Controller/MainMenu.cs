@@ -10,7 +10,7 @@ namespace OOSE_Assignment.Controller
         private Player player;
         private Shop shop;
 
-        public MainMenu(Shop shop)
+        public MainMenu(Player player, Shop shop)
         {
             base.options = new List<MenuItem>
             {
@@ -24,30 +24,41 @@ namespace OOSE_Assignment.Controller
             exit = ExitGame;
 
             this.shop = shop;
+            this.player = player;
         }
 
         private void GoToShop()
         {
             Console.WriteLine("Going to shop");
-            MethodMenu m = new ShopMenu(shop);
+            MethodMenu m = new ShopMenu(player, shop);
             m.Run();
             this.Run();
         }
 
         private void ChooseWeapon()
         {
-            Console.WriteLine("Selecting weapon");
+            ObjectMenu<Weapon> m = new ObjectMenu<Weapon>(player.Inventory.Weapons);
+            Weapon w = m.Run();
+            if( w != null )
+            {
+                player.EquipItem(w);
+            }
             this.Run();
         }
         private void ChooseCharacterName()
         {
-            Console.WriteLine("Changing Character name");
+            player.Name = new NamePrompt().GetName();
             this.Run();
         }
 
         private void ChooseArmour()
         {
-            Console.WriteLine("Selecting Armour");
+            ObjectMenu<Armour> m = new ObjectMenu<Armour>(player.Inventory.Armours);
+            Armour item = m.Run();
+            if (item != null)
+            {
+                player.EquipItem(item);
+            }
             this.Run();
         }
 

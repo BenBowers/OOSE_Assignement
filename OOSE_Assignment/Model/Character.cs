@@ -3,7 +3,7 @@ namespace OOSE_Assignment.Model
 {
     public abstract class Character
     {
-        public string Name { get; protected set; }
+        public string Name { get; set; }
         public int MaximumHealth { get; protected set; }
         public int CurrentHealth { get; protected set; }
         public int Gold { get; protected set; }
