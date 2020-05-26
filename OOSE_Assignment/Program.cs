@@ -17,6 +17,10 @@ namespace OOSE_Assignment.Controller
             try
             {
                 shop = ShopFileReader.ReadFile(args[0]);
+                foreach (WeaponEnchantment e in Enchantements.WeaponEnchantments)
+                {
+                    shop.AddEnchantment(e);
+                }
                 Armour lowestArmour = shop.Armours[0];
                 foreach (Armour armour in shop.Armours)
                     if (armour.Cost < lowestArmour.Cost)

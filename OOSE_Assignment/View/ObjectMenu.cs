@@ -5,7 +5,7 @@ namespace OOSE_Assignment.View
 {
     public class ObjectMenu<E> : Menu<E>
     {
-        public ObjectMenu(List<E> options) : base(options)
+        public ObjectMenu(List<E> options, string menuName) : base(options, menuName)
         {
         }
 
@@ -27,6 +27,11 @@ namespace OOSE_Assignment.View
         protected override string GetName(int ii)
         {
             return options[ii].ToString();
+        }
+
+        public void SetMenuName(string s)
+        {
+            menuName = s;
         }
     }
 }

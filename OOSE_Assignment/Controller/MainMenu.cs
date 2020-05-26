@@ -35,31 +35,30 @@ namespace OOSE_Assignment.Controller
             this.Run();
         }
 
-        private void ChooseWeapon()
-        {
-            ObjectMenu<Weapon> m = new ObjectMenu<Weapon>(player.Inventory.Weapons);
-            Weapon w = m.Run();
-            if( w != null )
-            {
-                player.EquipItem(w);
-            }
-            this.Run();
-        }
         private void ChooseCharacterName()
         {
             player.Name = new NamePrompt().GetName();
             this.Run();
         }
 
+        private void ChooseWeapon()
+        {
+            Weapon weapon = ChooseItem(player.Inventory.Weapons, "Equip Weapon");
+            if (weapon != null) { player.EquipItem(weapon); }
+            this.Run();
+        }
+
         private void ChooseArmour()
         {
-            ObjectMenu<Armour> m = new ObjectMenu<Armour>(player.Inventory.Armours);
-            Armour item = m.Run();
-            if (item != null)
-            {
-                player.EquipItem(item);
-            }
+            Armour armour = ChooseItem(player.Inventory.Armours, "Equip Armour");
+            if (armour != null) { player.EquipItem(armour); }
             this.Run();
+        }
+
+        private E ChooseItem<E>(List<E> list, string prompt) where E : Item
+        {
+            ObjectMenu<E> m = new ObjectMenu<E>(list, prompt);
+            return m.Run(); 
         }
 
         private void StartBattle()

@@ -42,7 +42,6 @@
     <Compile Include="Model\Potion.cs" />
     <Compile Include="Model\WeaponEnchantment.cs" />
     <Compile Include="Model\Weapon.cs" />
-    <Compile Include="Model\Enemy.cs" />
     <Compile Include="Model\HealingPotion.cs" />
     <Compile Include="Model\DamagePotion.cs" />
     <Compile Include="View\PlayerInfo.cs" />
@@ -58,12 +57,20 @@
     <Compile Include="Controller\ShopFileReader.cs" />
     <Compile Include="View\Prompt.cs" />
     <Compile Include="Controller\NamePrompt.cs" />
+    <Compile Include="Controller\EnemyFactory.cs" />
+    <Compile Include="Model\Enemy\Enemy.cs" />
+    <Compile Include="Model\Enemy\Slime.cs" />
+    <Compile Include="Model\Enemy\Ogre.cs" />
+    <Compile Include="Model\Enemy\Goblin.cs" />
+    <Compile Include="Model\Attack.cs" />
+    <Compile Include="Model\Enemy\Dragon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="View\" />
     <Folder Include="Controller\" />
     <Folder Include="res\" />
+    <Folder Include="Model\Enemy\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shop.csv" />

@@ -19,7 +19,7 @@ namespace OOSE_Assignment.Model
         public void Heal(int healAmount) =>
             CurrentHealth = Math.Max(CurrentHealth + healAmount, MaximumHealth);
 
-        public void Damage(int damage) =>
-            CurrentHealth = Math.Max(0, CurrentHealth - damage);
+        public abstract void PotionDamage(int damage);
+        public abstract void WeaponDamage(int damage);
     }
 }

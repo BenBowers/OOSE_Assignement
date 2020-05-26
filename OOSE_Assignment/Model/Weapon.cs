@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OOSE_Assignment.Model
 {
@@ -31,10 +32,19 @@ namespace OOSE_Assignment.Model
 
         public override string ToString()
         {
-            return String.Format(
+            string outString = String.Format(
                 "{0}, Cost: {1}, max Damage: {2}, min Damage: {3}," +
                 " WeaponType: {4}, DamageType: {5}",
                 Name, Cost, MaxEffect, MinEffect, WeaponType, DamageType);
+            if (enchantments.Any())
+            {
+                outString += " Enchantments: ";
+                foreach(WeaponEnchantment enchantment in enchantments)
+                {
+                    outString += enchantment.Name + " ";
+                }
+            }
+            return outString;
         }
     }
 }

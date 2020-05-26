@@ -21,6 +21,12 @@ namespace OOSE_Assignment.View
 
         }
 
+        public Menu(List<E> options, string name)
+        {
+            this.options = options;
+            this.menuName = name;
+        }
+
         public Menu() { }
 
 

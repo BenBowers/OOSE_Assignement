@@ -21,7 +21,7 @@ namespace OOSE_Assignment.Model
         public List<Weapon> Weapons { get; private set; } = new List<Weapon>();
         public List<Armour> Armours { get; private set; } = new List<Armour>();
         public List<Potion> Potions { get; private set; } = new List<Potion>();
-        private int counter = 0;
+        public int Capacity { get; private set; } = 0;
 
         public Inventory() { }
 
@@ -31,10 +31,10 @@ namespace OOSE_Assignment.Model
         public void AddItem(Potion potion) => AddItem(Potions, potion);
         private void AddItem<E>(List<E> list, E item) where E : Item
         {
-            if (counter < INVENTORY_SIZE)
+            if (Capacity < INVENTORY_SIZE)
             {
                 list.Add(item);
-                counter++;
+                Capacity++;
             }
             else
             {
@@ -53,7 +53,7 @@ namespace OOSE_Assignment.Model
                 throw new ItemNotFoundException();
             }
 
-            counter--;
+            Capacity--;
         }
 
         public bool Contains(Weapon weapon) => Weapons.Contains(weapon);

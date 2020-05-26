@@ -7,8 +7,15 @@ namespace OOSE_Assignment.Controller
     public class ShopMenu : MethodMenu
     {
         public const string NAME = "Shop";
-        Shop shop;
-        Player player;
+        public const string STATUS_BAR = "Current Gold: {0}, Inventory {1}/{2}";
+        private const string INSUFFCIENT_FUNDS_PROMPT = "You do not have enough gold to purchase that!!";
+        private Shop shop;
+        private Player player;
+
+        private string Status => String.Format(STATUS_BAR,
+                    player.Gold,
+                    player.Inventory.Capacity,
+                    Inventory.INVENTORY_SIZE);
 
         public ShopMenu(Player player, Shop shop)
         {
@@ -28,7 +35,7 @@ namespace OOSE_Assignment.Controller
 
         private void WeaponOption()
         {
-            ObjectMenu<Weapon> menu = new ObjectMenu<Weapon>(shop.Weapons);
+            ObjectMenu<Weapon> menu = new ObjectMenu<Weapon>(shop.Weapons, Status);
             Weapon weapon = menu.Run();
             if (weapon != null)
             {
@@ -39,7 +46,7 @@ namespace OOSE_Assignment.Controller
                 }
                 else
                 {
-                    Console.WriteLine("You do not have enough gold to purchase that!!");
+                    Console.WriteLine(INSUFFCIENT_FUNDS_PROMPT);
                 }
             }
             this.Run();
@@ -47,7 +54,7 @@ namespace OOSE_Assignment.Controller
 
         private void ArmourOption()
         {
-            ObjectMenu<Armour> menu = new ObjectMenu<Armour>(shop.Armours);
+            ObjectMenu<Armour> menu = new ObjectMenu<Armour>(shop.Armours, Status);
             Armour armour = menu.Run();
             if (armour != null)
             {
@@ -58,7 +65,7 @@ namespace OOSE_Assignment.Controller
                 }
                 else
                 {
-                    Console.WriteLine("You do not have enough gold to purchase that!!");
+                    Console.WriteLine(INSUFFCIENT_FUNDS_PROMPT);
                 }
             }
             this.Run();
@@ -66,7 +73,7 @@ namespace OOSE_Assignment.Controller
 
         private void PotionOption()
         {
-            ObjectMenu<Potion> menu = new ObjectMenu<Potion>(shop.Potions);
+            ObjectMenu<Potion> menu = new ObjectMenu<Potion>(shop.Potions, Status);
             Potion potion = menu.Run();
             if (potion != null)
             {
@@ -77,7 +84,7 @@ namespace OOSE_Assignment.Controller
                 }
                 else
                 {
-                    Console.WriteLine("You do not have enough gold to purchase that!!");
+                    Console.WriteLine(INSUFFCIENT_FUNDS_PROMPT);
                 }
             }
             this.Run();
@@ -86,12 +93,35 @@ namespace OOSE_Assignment.Controller
 
         private void EnchantmentOption()
         {
+            ObjectMenu<WeaponEnchantment> menu =
+                new ObjectMenu<WeaponEnchantment>(shop.Enchantments, "Enchant weapon");
+            WeaponEnchantment enchantment = menu.Run();
+            if (enchantment != null)
+            {
+                if (enchantment.Cost < player.Gold)
+                {
+                    ObjectMenu<Weapon> weaponMenu = new ObjectMenu<Weapon>(player.Inventory.Weapons, "Select weapon to enchant");
+                    Weapon weapon = weaponMenu.Run();
+                    if (weapon != null)
+                    {
+                        player.RemoveGold(enchantment.Cost);
+                        weapon.AddEnchantment(enchantment);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(INSUFFCIENT_FUNDS_PROMPT);
+                }
+            }
 
+            this.Run();
         }
 
         private void ExitOption()
         {
 
         }
+
+
     }
 }

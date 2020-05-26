@@ -7,7 +7,7 @@ namespace OOSE_Assignment.Model
             : base(name, cost, minEffect, maxEffect) { }
 
         public override void Use(Character character) =>
-            character.Damage(GetEffect());
+            character.PotionDamage(GetEffect());
 
         public override string ToString()
         {

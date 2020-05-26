@@ -74,8 +74,14 @@ namespace OOSE_Assignment.Model
             }
         }
 
-        
+        public override void PotionDamage(int damage)
+        {
+            throw new NotImplementedException();
+        }
 
-
+        public override void WeaponDamage(int damage)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
