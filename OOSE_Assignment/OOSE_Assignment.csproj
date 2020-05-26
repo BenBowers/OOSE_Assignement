@@ -44,7 +44,6 @@
     <Compile Include="Model\Weapon.cs" />
     <Compile Include="Model\HealingPotion.cs" />
     <Compile Include="Model\DamagePotion.cs" />
-    <Compile Include="View\PlayerInfo.cs" />
     <Compile Include="View\Menu.cs" />
     <Compile Include="Controller\BattleMenu.cs" />
     <Compile Include="Controller\MainMenu.cs" />
