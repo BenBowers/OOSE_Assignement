@@ -50,7 +50,7 @@
     <Compile Include="Model\Shop.cs" />
     <Compile Include="Controller\Battle.cs" />
     <Compile Include="View\MenuItem.cs" />
-    <Compile Include="Controller\ShopMenu.cs" />
+    <Compile Include="Controller\BuyMenu.cs" />
     <Compile Include="View\MethodMenu.cs" />
     <Compile Include="View\ObjectMenu.cs" />
     <Compile Include="Controller\ShopFileReader.cs" />
@@ -63,6 +63,8 @@
     <Compile Include="Model\Enemy\Goblin.cs" />
     <Compile Include="Model\Attack.cs" />
     <Compile Include="Model\Enemy\Dragon.cs" />
+    <Compile Include="Controller\ShopMenu.cs" />
+    <Compile Include="Controller\SellMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
