@@ -74,12 +74,13 @@ namespace OOSE_Assignment.Controller
             try
             {
                 new Battle(player, enemyFactory).Run();
+                this.Run();
             }
             catch (DeadPlayerException e)
             {
-                
+                Console.WriteLine("You Died");
+                ExitGame();
             }
-            this.Run();
         }
 
         private void ExitGame()
