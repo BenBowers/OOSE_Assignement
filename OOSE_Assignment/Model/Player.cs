@@ -77,12 +77,17 @@ namespace OOSE_Assignment.Model
 
         public override void WeaponDamage(int damage)
         {
-            CurrentHealth = Math.Max(0, CurrentHealth - EquippedArmour.GetEffect());
+            CurrentHealth = Math.Max(0, CurrentHealth - Defend(damage));
         }
 
         public override string ToString()
         {
             return base.ToString() +" Weapon: " + EquippedWeapon + " Armour: " + EquippedArmour;
+        }
+
+        private int Defend(int damage)
+        {
+            return Math.Max(0, damage - EquippedArmour.GetEffect());
         }
     }
 }

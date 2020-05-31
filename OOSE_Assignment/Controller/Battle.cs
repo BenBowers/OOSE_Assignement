@@ -26,7 +26,7 @@ namespace OOSE_Assignment.Controller
                 menu.Run(); // Players turn
                 if( !enemy.Dead)
                 {
-                    enemy.Attack(player);
+                    Console.WriteLine(enemy.Attack(player));
                     if (player.Dead) { throw new DeadPlayerException(); }
                 }
             }

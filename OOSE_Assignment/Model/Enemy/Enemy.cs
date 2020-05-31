@@ -23,12 +23,17 @@ namespace OOSE_Assignment.Model.Enemy
             this.maxAttack = maxAttack;
         }
 
-        public virtual void Attack(Character character)
+        public virtual string Attack(Character character)
         {
-            character.WeaponDamage(GetDamage());
+            return Name + " did " + DoDamage(GetDamage(), character) + " damage to " + character.Name;
         }
 
-
+        protected int DoDamage(int damage, Character character)
+        {
+            int initial = character.CurrentHealth;
+            character.WeaponDamage(damage);
+            return initial - character.CurrentHealth;
+        }
 
         public override void WeaponDamage(int damage)
         {

@@ -31,21 +31,26 @@ namespace OOSE_Assignment.Model.Enemy
         }
 
 
-        public override void Attack(Character character)
+        public override string Attack(Character character)
         {
+            string strOut;
             int rand = new Random().Next(101);
             if (rand <= 10)
             {
                 Heal(10);
+                strOut = "Dragon Healed 10hp";
             }
             else if (rand <= 35)
             {
-                character.WeaponDamage(GetDamage() * 2);
+                strOut = Name + " did double damage! " +
+                    DoDamage(GetDamage() * 2, character) + " damage was done";
             }
             else
             {
-                character.WeaponDamage(GetDamage());
-            }   
+                strOut = base.Attack(character);
+            }
+
+            return strOut;
         }
     }
 }

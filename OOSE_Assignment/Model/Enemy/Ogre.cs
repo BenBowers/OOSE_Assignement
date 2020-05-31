@@ -28,15 +28,18 @@ namespace OOSE_Assignment.Model.Enemy
         {
         }
 
-        public override void Attack(Character character)
+        public override string Attack(Character character)
         {
             bool specialAttack = new Random().Next(101) <= 20;
-            int damage = GetDamage();
+            string strOut = "";
             if (specialAttack)
             {
-                character.WeaponDamage(damage);
+                strOut = "Ogre attacked twice!!! \n";
+                strOut += base.Attack(character) + "\n";
             }
-            character.WeaponDamage(damage);
+            strOut += base.Attack(character);
+
+            return strOut;
         }
     }
 }

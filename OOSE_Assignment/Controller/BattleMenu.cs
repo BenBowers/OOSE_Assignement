@@ -25,7 +25,9 @@ namespace OOSE_Assignment.Controller
         public void Attack()
         {
             int attack = player.EquippedWeapon.Attack();
+            int initHealth = enemy.CurrentHealth;
             enemy.WeaponDamage(attack);
+            Console.WriteLine(player.Name + " did " + (initHealth - enemy.CurrentHealth) + " damage to " + enemy.Name);
         }
 
         public void UsePotion()
@@ -37,7 +39,8 @@ namespace OOSE_Assignment.Controller
                 if(character != null)
                 {
                     potion.Use(character);
-                    Console.WriteLine(player + " used " + potion + " on " + character);
+                    player.Inventory.RemoveItem(potion);
+                    Console.WriteLine(player.Name + " used " + potion + " on " + character.Name);
                 }
             }
             else
