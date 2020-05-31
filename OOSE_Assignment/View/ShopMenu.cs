@@ -10,8 +10,9 @@ using System.Collections.Generic;
 using OOSE_Assignment.Model;
 using OOSE_Assignment.View;
 
-namespace OOSE_Assignment.Controller
+namespace OOSE_Assignment.View
 {
+    // Menu displayed when user enters the shop
     public class ShopMenu : MethodMenu
     {
         private Player player;
@@ -24,6 +25,7 @@ namespace OOSE_Assignment.Controller
                 new MenuItem("Sell", Sell)
             };
             exit = Exit;
+            base.menuName = "Shop :";
 
             this.player = player;
             this.shop = shop;

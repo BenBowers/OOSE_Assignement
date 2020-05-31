@@ -1,6 +1,9 @@
 ﻿using System;
-namespace OOSE_Assignment.Model
+namespace OOSE_Assignment.Model.Item
 {
+    /**
+     * Class representing armour
+     */
     public class Armour : Item, ICloneable
     {
         private string material;

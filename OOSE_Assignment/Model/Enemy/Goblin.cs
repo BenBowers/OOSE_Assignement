@@ -1,13 +1,9 @@
-﻿//
-//  Goblin.cs
-//
-//  Author:
-//       benjaminbowers <>
-//
-//
-using System;
+﻿using System;
 namespace OOSE_Assignment.Model.Enemy
 {
+    /**
+     * Class representing a goblin enemy
+     */
     public class Goblin : Enemy
     {
         public const string NAME = "Goblin";

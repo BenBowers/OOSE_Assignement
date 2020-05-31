@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace OOSE_Assignment.Model
+namespace OOSE_Assignment.Model.Item
 {
+    /**
+     * Class representing every weapon in the game
+     */
     public class Weapon : Item, ICloneable
     {
         public string WeaponType { get; private set; }
@@ -22,12 +25,14 @@ namespace OOSE_Assignment.Model
             DamageType = weapon.DamageType;
         }
 
+        // Adds an enchantment to the weapon
         public void AddEnchantment(WeaponEnchantment enchantment) => enchantments.Add(enchantment);
 
         public int Attack()
         {
             int curDamage = base.GetEffect();
 
+            // Will modify the damage with enchantments
             foreach(WeaponEnchantment enchantment in enchantments)
             {
                 curDamage = enchantment.Attack(curDamage);

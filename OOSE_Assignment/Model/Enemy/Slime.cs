@@ -1,13 +1,9 @@
-﻿//
-//  Slime.cs
-//
-//  Author:
-//       benjaminbowers <>
-//
-//
-using System;
+﻿using System;
 namespace OOSE_Assignment.Model.Enemy
 {
+    /**
+     * Class representing a slime enemy
+     */
     public class Slime : Enemy
     {
         public const string NAME = "Slime";

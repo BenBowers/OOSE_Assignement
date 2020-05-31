@@ -1,11 +1,4 @@
-﻿//
-//  Prompt.cs
-//
-//  Author:
-//       benjaminbowers <>
-//
-//
-using System;
+﻿using System;
 namespace OOSE_Assignment.View
 {
     public class Prompt

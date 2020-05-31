@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-
+using OOSE_Assignment.Model.Item;
 namespace OOSE_Assignment.Model
 {
+    // Class representing a playable character in the game
     public class Player : Character
     {
+        // Thrown when the player does not own the item
         private class OwnershipException : Exception
         {
             public OwnershipException() : base("Player does not own this item") { }
         }
 
+        // Thrown when the player does not have enough gold to remove
         private class InsufficientFundsException : Exception
         {
             public InsufficientFundsException() : base("Player does not have enough gold") { }
@@ -34,6 +36,7 @@ namespace OOSE_Assignment.Model
             Inventory = new Inventory();
         }
 
+        // Puts the weapon in the players equipped slot
         public void EquipItem(Weapon weapon)
         {
             if (Inventory.Contains(weapon))
@@ -46,6 +49,7 @@ namespace OOSE_Assignment.Model
             }
         }
 
+        // Puts the Armour in the players equipped slot
         public void EquipItem(Armour armour)
         {
             if (Inventory.Contains(armour))
@@ -58,10 +62,10 @@ namespace OOSE_Assignment.Model
             }
         }
 
-        public void DequipWeapon() => EquippedWeapon = null;
-        public void DequipArmour() => EquippedArmour = null;
-
+        // Adds gold to the player
         public void AddGold(int gold) => Gold += gold;
+
+        // Removes gold from the player
         public void RemoveGold(int amount)
         {
             if(Gold - amount < 0)
@@ -74,7 +78,7 @@ namespace OOSE_Assignment.Model
             }
         }
 
-
+        // Does weapon damage to the player
         public override void WeaponDamage(int damage)
         {
             CurrentHealth = Math.Max(0, CurrentHealth - Defend(damage));
@@ -85,6 +89,7 @@ namespace OOSE_Assignment.Model
             return base.ToString() +" Weapon: " + EquippedWeapon + " Armour: " + EquippedArmour;
         }
 
+        // integer represening the damage done through the armour
         private int Defend(int damage)
         {
             return Math.Max(0, damage - EquippedArmour.GetEffect());

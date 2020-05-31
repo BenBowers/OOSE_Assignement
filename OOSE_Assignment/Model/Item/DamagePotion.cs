@@ -1,6 +1,7 @@
 ﻿using System;
-namespace OOSE_Assignment.Model
+namespace OOSE_Assignment.Model.Item
 {
+    // Class representing a potion that deals damage
     public class DamagePotion : Potion
     {
         public DamagePotion(string name, int cost, int minEffect, int maxEffect)

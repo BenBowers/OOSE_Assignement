@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using OOSE_Assignment.Model.Item;
 namespace OOSE_Assignment.Model
 {
+    // Class representing the data needed for the games shop
     public class Shop
     {
         public List<Armour> Armours { get; private set; }

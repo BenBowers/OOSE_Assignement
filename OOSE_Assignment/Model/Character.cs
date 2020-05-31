@@ -1,6 +1,10 @@
 ﻿using System;
 namespace OOSE_Assignment.Model
 {
+    /**
+     * Abstract class representing every character in the name that can be damaged
+     * and healed
+     */
     public abstract class Character
     {
         public const string FORMAT_STRING = "Name: {0}, Health: {1}/{2}";
@@ -31,7 +35,5 @@ namespace OOSE_Assignment.Model
         {
             return String.Format(FORMAT_STRING, Name, CurrentHealth, MaximumHealth);
         }
-    }
-
-    
+    }  
 }

@@ -1,7 +1,10 @@
 ﻿using System;
 
-namespace OOSE_Assignment.Model
+namespace OOSE_Assignment.Model.Item
 {
+    /**
+     * Abstract class that represents every potion in the game
+     */
     public abstract class Potion : Item, ICloneable
     {
         public Potion(string name, int cost, int minEffect, int maxEffect) : base(name, cost, minEffect, maxEffect)

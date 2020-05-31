@@ -4,14 +4,21 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using OOSE_Assignment.Model;
+using OOSE_Assignment.Model.Item;
 namespace OOSE_Assignment.Controller
 {
+    // Exception for an error in the shop file
     public class ShopFileException : Exception
     {
         public ShopFileException(string m) : base(m) { }
     }
+
+    /**
+     * Static class with a function to read a csv file
+     */
     public static class ShopFileReader
     {
+        // Exception for when an error with parsing occurs
         private class ParserException : Exception
         {
             public ParserException(string s) : base(s) { }
@@ -34,6 +41,7 @@ namespace OOSE_Assignment.Controller
         };
 
 
+        // Reads the shop file and returns it as a shop object
         public static Shop ReadFile(string filename)
         {
             Shop shop = new Shop();
@@ -65,12 +73,17 @@ namespace OOSE_Assignment.Controller
             return shop;
         }
 
+        
+        // Parses an idividuall line of the csv
         private static void ParseLine(Shop shop, string line)
         {
+            // Split the string
             string[] strList = line.Split(new string[] { ", " }, StringSplitOptions.None);
+
+            // Try to get the appropriate function to parse the line
             if(PARSERS.TryGetValue(strList[0][0], out ItemParser parser))
             {
-                parser(shop, strList);
+                parser(shop, strList); // go to function that parses the line
             }
             else
             {
@@ -78,6 +91,8 @@ namespace OOSE_Assignment.Controller
             }
         }
 
+
+        // Parses a line representing a weapon
         private static void ParseWeapon(Shop shop, string[] itemParam)
         {
             string name;
@@ -120,6 +135,7 @@ namespace OOSE_Assignment.Controller
             }
         }
 
+        // Parses a line representing armour
         private static void ParseArmour(Shop shop, string[] itemParam)
         {
             string name;
@@ -160,6 +176,7 @@ namespace OOSE_Assignment.Controller
 
         }
 
+        // Parsing a line representing a potion
         private static void ParsePotion(Shop shop, string[] itemParam)
         {
             string name;

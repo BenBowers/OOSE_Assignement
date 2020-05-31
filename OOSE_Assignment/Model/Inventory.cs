@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using OOSE_Assignment.Model.Item;
 namespace OOSE_Assignment.Model
 {
+    // Exception thrown when the inventory is full
     public class InventoryFullException : Exception
     {
         public InventoryFullException() : base("Inventory is full") { }
     }
 
+    // Exception thrown when an item can't be found
     public class ItemNotFoundException : Exception
     {
         public ItemNotFoundException() : base("Item not found") { }
     }
 
-
+    // Class representing the contents of the players inventory
     public class Inventory
     {
         public const int INVENTORY_SIZE = 15;
@@ -29,7 +31,7 @@ namespace OOSE_Assignment.Model
         public void AddItem(Weapon weapon) => AddItem(Weapons, weapon);
         public void AddItem(Armour armour) => AddItem(Armours, armour);
         public void AddItem(Potion potion) => AddItem(Potions, potion);
-        private void AddItem<E>(List<E> list, E item) where E : Item
+        private void AddItem<E>(List<E> list, E item) where E : Item.Item
         {
             if (Capacity < INVENTORY_SIZE)
             {
@@ -46,7 +48,7 @@ namespace OOSE_Assignment.Model
         public void RemoveItem(Weapon weapon) => RemoveItem(Weapons, weapon);
         public void RemoveItem(Armour armour) => RemoveItem(Armours, armour);
         public void RemoveItem(Potion potion) => RemoveItem(Potions, potion);
-        private void RemoveItem<E>(List<E> list, E item) where E : Item
+        private void RemoveItem<E>(List<E> list, E item) where E : Item.Item
         {
             if (!list.Remove(item))
             {

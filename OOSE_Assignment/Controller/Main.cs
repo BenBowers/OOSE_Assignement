@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using OOSE_Assignment.Model;
-
+using OOSE_Assignment.View;
+using OOSE_Assignment.Model.Item;
 namespace OOSE_Assignment.Controller
 {
     class MainClass
     {
-
+        // Entry point for the program
         public static void Main(string[] args)
         {
             Shop shop;

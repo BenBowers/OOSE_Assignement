@@ -1,13 +1,9 @@
-﻿//
-//  Dragon.cs
-//
-//  Author:
-//       benjaminbowers <>
-//
-//
-using System;
+﻿using System;
 namespace OOSE_Assignment.Model.Enemy
 {
+    /**
+     * Class representing a dragon
+     */
     public class Dragon : Enemy
     {
         private delegate void Special();

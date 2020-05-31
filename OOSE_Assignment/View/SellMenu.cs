@@ -1,16 +1,12 @@
-﻿//
-//  SellMenu.cs
-//
-//  Author:
-//       benjaminbowers <>
-//
-//
-using System;
+﻿using System;
 using System.Collections.Generic;
-using OOSE_Assignment.View;
 using OOSE_Assignment.Model;
-namespace OOSE_Assignment.Controller
+using OOSE_Assignment.Model.Item;
+namespace OOSE_Assignment.View
 {
+    /**
+     * Menu that is displayed when a user wants to sell an item
+     */
     public class SellMenu : MethodMenu
     {
         public const string NAME = "Shop";
@@ -37,6 +33,7 @@ namespace OOSE_Assignment.Controller
             this.player = player;
         }
 
+        // User selects weapons
         private void WeaponOption()
         {
             ObjectMenu<Weapon> menu = new ObjectMenu<Weapon>(player.Inventory.Weapons, Status);
@@ -48,11 +45,12 @@ namespace OOSE_Assignment.Controller
             }
             else
             {
-                Console.WriteLine(EQUIPPED_ITEM_ERROR);
+                Console.WriteLine(EQUIPPED_ITEM_ERROR); // If the item is equipped
             }
-            this.Run();
+            this.Run(); // Run the menu again
         }
 
+        // User selects armours
         private void ArmourOption()
         {
             ObjectMenu<Armour> menu = new ObjectMenu<Armour>(player.Inventory.Armours, Status);
@@ -64,11 +62,12 @@ namespace OOSE_Assignment.Controller
             }
             else
             {
-                Console.WriteLine(EQUIPPED_ITEM_ERROR);
+                Console.WriteLine(EQUIPPED_ITEM_ERROR); // user has the item equipped
             }
-            this.Run();
+            this.Run();// run the menu again
         }
 
+        // User selects potions
         private void PotionOption()
         {
             ObjectMenu<Potion> menu = new ObjectMenu<Potion>(player.Inventory.Potions, Status);

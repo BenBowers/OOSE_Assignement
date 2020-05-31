@@ -1,15 +1,11 @@
-﻿//
-//  EnemyFactory.cs
-//
-//  Author:
-//       benjaminbowers <>
-//
-//
-using System;
+﻿using System;
 using OOSE_Assignment.Model.Enemy;
 
 namespace OOSE_Assignment.Controller
 {
+    /**
+     * Class the generates an enemy on demand
+     */
     public class EnemyFactory
     {
         private delegate Enemy Constructor();
@@ -28,6 +24,7 @@ namespace OOSE_Assignment.Controller
         {
         }
 
+        // Returns an enemy based on the current probability
         public Enemy GetEnemy()
         {
             Random r = new Random();

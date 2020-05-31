@@ -1,6 +1,9 @@
 ﻿using System;
 namespace OOSE_Assignment.Model.Enemy
 {
+    /**
+     * Abstract class representing every enemy in the game
+     */
     public abstract class Enemy : Character
     {
         private int minDefence;
@@ -23,11 +26,13 @@ namespace OOSE_Assignment.Model.Enemy
             this.maxAttack = maxAttack;
         }
 
+        // Returns a string of the attack done
         public virtual string Attack(Character character)
         {
             return Name + " did " + DoDamage(GetDamage(), character) + " damage to " + character.Name;
         }
 
+        // Does the damage to the character returns the amount of damage done
         protected int DoDamage(int damage, Character character)
         {
             int initial = character.CurrentHealth;

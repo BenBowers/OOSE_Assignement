@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 namespace OOSE_Assignment.View
 {
-
+    /**
+     * Abstract class representing every menu in the game
+     */
     public abstract class Menu<E>
     {
 
@@ -35,6 +37,10 @@ namespace OOSE_Assignment.View
          */
         protected abstract string GetName(int ii);
 
+
+        /**
+         * Returns the index of the item in the list that was selected
+         */
         protected int GetSelection()
         {
             int selection = 0;

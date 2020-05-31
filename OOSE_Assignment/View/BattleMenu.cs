@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using OOSE_Assignment.Model;
 using OOSE_Assignment.Model.Enemy;
-using OOSE_Assignment.View;
-namespace OOSE_Assignment.Controller
+using OOSE_Assignment.Model.Item;
+namespace OOSE_Assignment.View
 {
+    /**
+     * This is a menu where the user selects what they are going to do on their
+     * turn
+     */
     public class BattleMenu : MethodMenu
     {
         private Player player;
@@ -22,6 +26,7 @@ namespace OOSE_Assignment.Controller
             this.enemy = enemy;
         }
 
+        // User selects attack
         public void Attack()
         {
             int attack = player.EquippedWeapon.Attack();
@@ -30,6 +35,7 @@ namespace OOSE_Assignment.Controller
             Console.WriteLine(player.Name + " did " + (initHealth - enemy.CurrentHealth) + " damage to " + enemy.Name);
         }
 
+        // User selects use potion
         public void UsePotion()
         {
             Potion potion = new ObjectMenu<Potion>(player.Inventory.Potions , "Select Potion").Run();
@@ -45,7 +51,7 @@ namespace OOSE_Assignment.Controller
             }
             else
             {
-                this.Run();
+                this.Run(); // If the user goes back
             }
 
         }

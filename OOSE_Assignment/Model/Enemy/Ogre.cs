@@ -1,13 +1,9 @@
-﻿//
-//  Ogre.cs
-//
-//  Author:
-//       benjaminbowers <>
-//
-//
-using System;
+﻿using System;
 namespace OOSE_Assignment.Model.Enemy
 {
+    /**
+     * Class representing an ogre enemy
+     */
     public class Ogre : Enemy
     {
         public const string NAME = "Ogre";

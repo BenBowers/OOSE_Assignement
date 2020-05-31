@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace OOSE_Assignment.Model
+namespace OOSE_Assignment.Model.Item
 {
+    // Class representing an enchantment that can be added to a weapon
     public class WeaponEnchantment
     {
         public const string FORMAT_STRING = "Name: {0}, Cost: {1}";
@@ -23,6 +23,7 @@ namespace OOSE_Assignment.Model
         }
     }
 
+    // static class containing every enchantment in the game
     public static class Enchantements
     {
         public static WeaponEnchantment DamagePlus2 =

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace OOSE_Assignment.View
 {
+    // A generic object menu that will display a list of objects and return the
+    // selected one
     public class ObjectMenu<E> : Menu<E>
     {
         public ObjectMenu(List<E> options, string menuName) : base(options, menuName)

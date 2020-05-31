@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace OOSE_Assignment.View
 {
+    // Menu that will execute a void method
     public class MethodMenu : Menu<MenuItem>
     {
         protected MenuAction exit { get; set; }

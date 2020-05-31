@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using OOSE_Assignment.View;
 using OOSE_Assignment.Model;
-namespace OOSE_Assignment.Controller
+using OOSE_Assignment.Model.Item;
+namespace OOSE_Assignment.View
 {
+    /**
+     * Menu that gets displayed when the user wants to buy something from the 
+     * shop
+     */
     public class BuyMenu : MethodMenu
     {
         public const string NAME = "Shop";
@@ -33,6 +37,7 @@ namespace OOSE_Assignment.Controller
             this.player = player;
         }
 
+        // User selects Weapons
         private void WeaponOption()
         {
             ObjectMenu<Weapon> menu = new ObjectMenu<Weapon>(shop.Weapons, Status);
@@ -49,9 +54,10 @@ namespace OOSE_Assignment.Controller
                     Console.WriteLine(INSUFFCIENT_FUNDS_PROMPT);
                 }
             }
-            this.Run();
+            this.Run(); // Run the menu again
         }
 
+        // User selects Armours
         private void ArmourOption()
         {
             ObjectMenu<Armour> menu = new ObjectMenu<Armour>(shop.Armours, Status);
@@ -68,9 +74,11 @@ namespace OOSE_Assignment.Controller
                     Console.WriteLine(INSUFFCIENT_FUNDS_PROMPT);
                 }
             }
-            this.Run();
+            this.Run(); // Run the menu again
         }
 
+
+        // User selects Potions
         private void PotionOption()
         {
             ObjectMenu<Potion> menu = new ObjectMenu<Potion>(shop.Potions, Status);
@@ -87,14 +95,14 @@ namespace OOSE_Assignment.Controller
                     Console.WriteLine(INSUFFCIENT_FUNDS_PROMPT);
                 }
             }
-            this.Run();
+            this.Run(); // Run the menu again
         }
 
-
+        // User selects enchant
         private void EnchantmentOption()
         {
             ObjectMenu<WeaponEnchantment> menu =
-                new ObjectMenu<WeaponEnchantment>(shop.Enchantments, "Enchant weapon");
+                new ObjectMenu<WeaponEnchantment>(shop.Enchantments, Status);
             WeaponEnchantment enchantment = menu.Run();
             if (enchantment != null)
             {
@@ -114,12 +122,12 @@ namespace OOSE_Assignment.Controller
                 }
             }
 
-            this.Run();
+            this.Run(); // Run this menu again
         }
 
+        // User exits shop
         private void ExitOption()
         {
-
         }
 
 

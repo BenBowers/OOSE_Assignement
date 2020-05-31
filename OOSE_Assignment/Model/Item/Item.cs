@@ -1,6 +1,9 @@
 ﻿using System;
-namespace OOSE_Assignment.Model
+namespace OOSE_Assignment.Model.Item
 {
+    /**
+     * Abstract class that represents every item in the game
+     */
     public abstract class Item
     {
         public string Name { get; protected set; }
