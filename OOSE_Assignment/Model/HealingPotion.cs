@@ -5,6 +5,7 @@ namespace OOSE_Assignment.Model
     {
         public HealingPotion(string name, int cost, int minEffect, int maxEffect)
             : base(name, cost, minEffect, maxEffect) { }
+        public HealingPotion(HealingPotion healingPotion) : base(healingPotion) { }
 
         public override void Use(Character character)
             => character.Heal(GetEffect());
@@ -13,5 +14,7 @@ namespace OOSE_Assignment.Model
         {
             return base.ToString() + "Potion Type: Healing";
         }
+
+        public override Potion Clone() => new HealingPotion(this);
     }
 }

@@ -16,10 +16,20 @@ namespace OOSE_Assignment.Model
             this.MaxEffect = maxEffect;
         }
 
+        public Item(Item item)
+        {
+            Name = String.Copy(item.Name);
+            Cost = item.Cost;
+            MinEffect = item.MinEffect;
+            MaxEffect = item.MaxEffect;
+        }
+
         public int GetEffect()
         {
             Random random = new Random();
             return random.Next(MinEffect, MaxEffect);
         }
+
+
     }
 }

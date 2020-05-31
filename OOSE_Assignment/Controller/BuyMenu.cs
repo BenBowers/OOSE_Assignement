@@ -42,7 +42,7 @@ namespace OOSE_Assignment.Controller
                 if (weapon.Cost < player.Gold)
                 {
                     player.RemoveGold(weapon.Cost);
-                    player.Inventory.AddItem(weapon);
+                    player.Inventory.AddItem(weapon.Clone());
                 }
                 else
                 {
@@ -61,7 +61,7 @@ namespace OOSE_Assignment.Controller
                 if (armour.Cost < player.Gold)
                 {
                     player.RemoveGold(armour.Cost);
-                    player.Inventory.AddItem(armour);
+                    player.Inventory.AddItem(armour.Clone());
                 }
                 else
                 {
@@ -80,7 +80,7 @@ namespace OOSE_Assignment.Controller
                 if (potion.Cost < player.Gold)
                 {
                     player.RemoveGold(potion.Cost);
-                    player.Inventory.AddItem(potion);
+                    player.Inventory.AddItem(potion.Clone());
                 }
                 else
                 {

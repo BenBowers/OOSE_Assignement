@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace OOSE_Assignment.Model
 {
-    public class Weapon : Item
+    public class Weapon : Item, ICloneable
     {
         public string WeaponType { get; private set; }
         public string DamageType { get; private set; }
@@ -14,6 +14,12 @@ namespace OOSE_Assignment.Model
         {
             WeaponType = weaponType;
             DamageType = damageType;
+        }
+
+        public Weapon(Weapon weapon) : base(weapon)
+        {
+            WeaponType = weapon.WeaponType;
+            DamageType = weapon.DamageType;
         }
 
         public void AddEnchantment(WeaponEnchantment enchantment) => enchantments.Add(enchantment);
@@ -46,5 +52,10 @@ namespace OOSE_Assignment.Model
             }
             return outString;
         }
+
+        #region ICloneable Members
+        public Weapon Clone() => new Weapon(this);
+        object ICloneable.Clone() => this.Clone();
+        #endregion
     }
 }
