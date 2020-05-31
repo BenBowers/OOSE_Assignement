@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using OOSE_Assignment.Model;
 namespace OOSE_Assignment.Controller
@@ -54,6 +55,11 @@ namespace OOSE_Assignment.Controller
             catch (ParserException e)
             {
                 throw new ShopFileException(e.Message);
+            }
+
+            if(!shop.Armours.Any() || !shop.Weapons.Any())
+            {
+                throw new ShopFileException("No armour or weapon in file");
             }
 
             return shop;
