@@ -54,7 +54,6 @@
     <Compile Include="Model\Enemy\Slime.cs" />
     <Compile Include="Model\Enemy\Ogre.cs" />
     <Compile Include="Model\Enemy\Goblin.cs" />
-    <Compile Include="Model\Attack.cs" />
     <Compile Include="Model\Enemy\Dragon.cs" />
     <Compile Include="Controller\ShopMenu.cs" />
     <Compile Include="Controller\SellMenu.cs" />
