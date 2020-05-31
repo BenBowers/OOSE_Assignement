@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using OOSE_Assignment.Model;
-using OOSE_Assignment.View;
 
 namespace OOSE_Assignment.Controller
 {
@@ -10,44 +9,51 @@ namespace OOSE_Assignment.Controller
 
         public static void Main(string[] args)
         {
-            // Read and validate file
             Shop shop;
             MainMenu menu;
             Player player;
             EnemyFactory enemyFactory;
             try
             {
-                shop = ShopFileReader.ReadFile(args[0]);
-                foreach (WeaponEnchantment e in Enchantements.WeaponEnchantments)
+                shop = ShopFileReader.ReadFile(args[0]); // Validate the shop file
+                foreach (WeaponEnchantment e in Enchantements.WeaponEnchantments) // Retrieve enchantments
                 {
                     shop.AddEnchantment(e);
                 }
-                Armour lowestArmour = shop.Armours[0];
-                foreach (Armour armour in shop.Armours)
-                    if (armour.Cost < lowestArmour.Cost)
-                        lowestArmour = armour;
-                Weapon lowestWeapon = shop.Weapons[0];
-                foreach (Weapon weapon in shop.Weapons)
-                    if (weapon.Cost < lowestWeapon.Cost)
-                        lowestWeapon = weapon;
+
+                // Get the lowest value armour and weapon
+                Armour lowestArmour = ExtractLowest(shop.Armours);
+                Weapon lowestWeapon = ExtractLowest(shop.Weapons);
 
 
+                // Create the player then add and equip items
                 player = new Player(new NamePrompt().GetName());
                 player.Inventory.AddItem(lowestArmour);
                 player.Inventory.AddItem(lowestWeapon);
                 player.EquipItem(lowestArmour);
                 player.EquipItem(lowestWeapon);
 
-                enemyFactory = new EnemyFactory();
-                menu = new MainMenu(player, shop, enemyFactory);
+                enemyFactory = new EnemyFactory(); // Get a factory for the enemys
+
+                menu = new MainMenu(player, shop, enemyFactory); // Launch the main menu
                 menu.Run();
             }
             catch (ShopFileException e)
             {
                 Console.WriteLine(e.Message);
             }
+        }
 
-
+        /**
+         * Removes the lowest value Item in the list
+         */
+        private static E ExtractLowest<E>(List<E> list) where E : Item
+        {
+            E lowest = list[0];
+            foreach (E item in list)
+                if (item.Cost < lowest.Cost)
+                    lowest = item;
+            return lowest;
         }
     }
 }
