@@ -20,6 +20,7 @@ namespace OOSE_Assignment.View
             {
                 new MenuItem("Go to shop", GoToShop ),
                 new MenuItem("Choose Character Name", ChooseCharacterName),
+                new MenuItem("View Inventory", DisplayInventory),
                 new MenuItem("Chose Weapon", ChooseWeapon),
                 new MenuItem("Choose Armour", ChooseArmour),
                 new MenuItem("Start Battle", StartBattle),
@@ -76,6 +77,21 @@ namespace OOSE_Assignment.View
         {
             ObjectMenu<E> m = new ObjectMenu<E>(list, prompt);
             return m.Run(); 
+        }
+
+        // User selects view inventory
+        private void DisplayInventory()
+        {
+            Console.WriteLine("Weapons : ");
+            foreach (Weapon weapon in player.Inventory.Weapons)
+                Console.WriteLine("    " + weapon);
+            Console.WriteLine("Armours : ");
+            foreach (Armour armour in player.Inventory.Armours)
+                Console.WriteLine("    " + armour);
+            Console.WriteLine("Potions : ");
+            foreach (Potion potion in player.Inventory.Potions)
+                Console.WriteLine("    " + potion);
+            this.Run();
         }
 
 
