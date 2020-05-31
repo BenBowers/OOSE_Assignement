@@ -64,7 +64,7 @@ namespace OOSE_Assignment.Model
         public void AddGold(int gold) => Gold += gold;
         public void RemoveGold(int amount)
         {
-            if(Gold - amount <= 0)
+            if(Gold - amount < 0)
             {
                 throw new InsufficientFundsException();
             }
@@ -74,14 +74,15 @@ namespace OOSE_Assignment.Model
             }
         }
 
-        public override void PotionDamage(int damage)
-        {
-            throw new NotImplementedException();
-        }
 
         public override void WeaponDamage(int damage)
         {
-            throw new NotImplementedException();
+            CurrentHealth = Math.Max(0, CurrentHealth - EquippedArmour.GetEffect());
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() +" Weapon: " + EquippedWeapon + " Armour: " + EquippedArmour;
         }
     }
 }

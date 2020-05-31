@@ -37,11 +37,11 @@ namespace OOSE_Assignment.Controller
             {
                 enemy = new Slime();
             }
-            else if (randomNum <= curGoblinProb)
+            else if (randomNum <= curSlimeProb + curGoblinProb)
             {
                 enemy = new Goblin();
             }
-            else if (randomNum <= curOgreProb)
+            else if (randomNum <= curSlimeProb + curGoblinProb + curOgreProb)
             {
                 enemy = new Ogre();
             }
@@ -49,6 +49,10 @@ namespace OOSE_Assignment.Controller
             {
                 enemy = new Dragon();
             }
+
+            curSlimeProb = Math.Max(0, curSlimeProb - 5);
+            curGoblinProb = Math.Max(0, curGoblinProb - 5);
+            curOgreProb = Math.Max(0, curOgreProb - 5);
 
             return enemy;
         }

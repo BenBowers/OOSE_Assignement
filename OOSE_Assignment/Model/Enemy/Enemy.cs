@@ -28,10 +28,7 @@ namespace OOSE_Assignment.Model.Enemy
             character.WeaponDamage(GetDamage());
         }
 
-        public override void PotionDamage(int damage)
-        {
-            base.CurrentHealth = Math.Max(0, CurrentHealth - damage);
-        }
+
 
         public override void WeaponDamage(int damage)
         {

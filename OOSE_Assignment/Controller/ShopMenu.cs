@@ -37,7 +37,7 @@ namespace OOSE_Assignment.Controller
 
         private void Sell()
         {
-            new SellMenu(player, shop).Run();
+            new SellMenu(player).Run();
             this.Run();
         }
 

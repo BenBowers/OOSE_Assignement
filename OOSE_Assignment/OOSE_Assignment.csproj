@@ -65,6 +65,7 @@
     <Compile Include="Model\Enemy\Dragon.cs" />
     <Compile Include="Controller\ShopMenu.cs" />
     <Compile Include="Controller\SellMenu.cs" />
+    <Compile Include="Controller\DeadPlayerException.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

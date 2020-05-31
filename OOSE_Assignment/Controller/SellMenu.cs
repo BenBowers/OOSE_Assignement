@@ -15,7 +15,6 @@ namespace OOSE_Assignment.Controller
     {
         public const string NAME = "Shop";
         public const string STATUS_BAR = "Current Gold: {0}, Inventory {1}/{2}";
-        private Shop shop;
         private Player player;
 
         private string Status => String.Format(STATUS_BAR,
@@ -23,7 +22,7 @@ namespace OOSE_Assignment.Controller
                     player.Inventory.Capacity,
                     Inventory.INVENTORY_SIZE);
 
-        public SellMenu(Player player, Shop shop)
+        public SellMenu(Player player)
         {
             menuName = NAME;
             options = new List<MenuItem>()
@@ -34,13 +33,12 @@ namespace OOSE_Assignment.Controller
             };
 
             exit = ExitOption;
-            this.shop = shop;
             this.player = player;
         }
 
         private void WeaponOption()
         {
-            ObjectMenu<Weapon> menu = new ObjectMenu<Weapon>(shop.Weapons, Status);
+            ObjectMenu<Weapon> menu = new ObjectMenu<Weapon>(player.Inventory.Weapons, Status);
             Weapon weapon = menu.Run();
             player.Inventory.RemoveItem(weapon);
             player.AddGold(weapon.Cost);
@@ -49,7 +47,7 @@ namespace OOSE_Assignment.Controller
 
         private void ArmourOption()
         {
-            ObjectMenu<Armour> menu = new ObjectMenu<Armour>(shop.Armours, Status);
+            ObjectMenu<Armour> menu = new ObjectMenu<Armour>(player.Inventory.Armours, Status);
             Armour armour = menu.Run();
             player.Inventory.RemoveItem(armour);
             player.AddGold(armour.Cost);
@@ -58,7 +56,7 @@ namespace OOSE_Assignment.Controller
 
         private void PotionOption()
         {
-            ObjectMenu<Potion> menu = new ObjectMenu<Potion>(shop.Potions, Status);
+            ObjectMenu<Potion> menu = new ObjectMenu<Potion>(player.Inventory.Potions, Status);
             Potion potion = menu.Run();
             player.Inventory.RemoveItem(potion);
             player.AddGold(potion.Cost);

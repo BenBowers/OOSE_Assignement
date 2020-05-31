@@ -9,8 +9,9 @@ namespace OOSE_Assignment.Controller
     {
         private Player player;
         private Shop shop;
+        private EnemyFactory enemyFactory;
 
-        public MainMenu(Player player, Shop shop)
+        public MainMenu(Player player, Shop shop, EnemyFactory enemyFactory)
         {
             base.options = new List<MenuItem>
             {
@@ -25,6 +26,13 @@ namespace OOSE_Assignment.Controller
 
             this.shop = shop;
             this.player = player;
+            this.enemyFactory = enemyFactory;
+        }
+
+        public override void Run()
+        {
+            Console.WriteLine(player);
+            base.Run();
         }
 
         private void GoToShop()
@@ -63,7 +71,14 @@ namespace OOSE_Assignment.Controller
 
         private void StartBattle()
         {
-            Console.WriteLine("Begining Battle");
+            try
+            {
+                new Battle(player, enemyFactory).Run();
+            }
+            catch (DeadPlayerException e)
+            {
+                
+            }
             this.Run();
         }
 

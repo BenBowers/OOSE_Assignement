@@ -14,6 +14,7 @@ namespace OOSE_Assignment.Controller
             Shop shop;
             MainMenu menu;
             Player player;
+            EnemyFactory enemyFactory;
             try
             {
                 shop = ShopFileReader.ReadFile(args[0]);
@@ -36,7 +37,9 @@ namespace OOSE_Assignment.Controller
                 player.Inventory.AddItem(lowestWeapon);
                 player.EquipItem(lowestArmour);
                 player.EquipItem(lowestWeapon);
-                menu = new MainMenu(player, shop);
+
+                enemyFactory = new EnemyFactory();
+                menu = new MainMenu(player, shop, enemyFactory);
                 menu.Run();
             }
             catch (ShopFileException e)

@@ -11,7 +11,7 @@ namespace OOSE_Assignment.View
         {
         }
 
-        public void Run()
+        public virtual void Run()
         {
             int selection = GetSelection();
             if(IsExit(selection))
