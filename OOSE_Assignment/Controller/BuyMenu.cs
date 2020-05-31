@@ -39,7 +39,7 @@ namespace OOSE_Assignment.Controller
             Weapon weapon = menu.Run();
             if (weapon != null)
             {
-                if (weapon.Cost < player.Gold)
+                if (weapon.Cost <= player.Gold)
                 {
                     player.RemoveGold(weapon.Cost);
                     player.Inventory.AddItem(weapon.Clone());
@@ -58,7 +58,7 @@ namespace OOSE_Assignment.Controller
             Armour armour = menu.Run();
             if (armour != null)
             {
-                if (armour.Cost < player.Gold)
+                if (armour.Cost <= player.Gold)
                 {
                     player.RemoveGold(armour.Cost);
                     player.Inventory.AddItem(armour.Clone());
@@ -77,7 +77,7 @@ namespace OOSE_Assignment.Controller
             Potion potion = menu.Run();
             if (potion != null)
             {
-                if (potion.Cost < player.Gold)
+                if (potion.Cost <= player.Gold)
                 {
                     player.RemoveGold(potion.Cost);
                     player.Inventory.AddItem(potion.Clone());
@@ -98,7 +98,7 @@ namespace OOSE_Assignment.Controller
             WeaponEnchantment enchantment = menu.Run();
             if (enchantment != null)
             {
-                if (enchantment.Cost < player.Gold)
+                if (enchantment.Cost <= player.Gold)
                 {
                     ObjectMenu<Weapon> weaponMenu = new ObjectMenu<Weapon>(player.Inventory.Weapons, "Select weapon to enchant");
                     Weapon weapon = weaponMenu.Run();
